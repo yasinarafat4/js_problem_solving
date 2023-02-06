@@ -22,9 +22,10 @@
 
 /*
 1 to n
-1+2+3+.........+n =
+1+2+3+.........+n
 */
 let n = 10;
+
 let sum = 0;
 for (let i = 1; i <= n; i++) {
   sum = sum + i;
@@ -77,8 +78,8 @@ function greaterThanFive(numbers) {
   }
   return count;
 }
-const result = greaterThanFive(numbers);
-// console.log(result);
+const results = greaterThanFive(numbers);
+// console.log(results);
 // solve
 //----------------------------------------------------------------
 
@@ -183,6 +184,8 @@ let resultOfTwoNames = reverseName("Ratul", "Jobaer");
 
 // ]
 
+//----------------------------------------------------------------
+
 // বেসিক জাভাস্ক্রিপ্ট এর সিম্পল Problems(এসাইন্মেন্ট কিভাবে করতে হবে তার ধারণা পাওয়া যাবে এগুলো সমাধান করলে)
 
 // ফাংশনের নাম হুবহু আমি যেমন বলে দিয়েছি সেটার মতো করে হতে হবে। অন্য কোন নাম/ অথবা নামের কোণ অক্ষর ছোট , কোণ অক্ষর বড় করলে হবে না , হুবহু আমার মত দিতে হবে ।
@@ -195,19 +198,28 @@ let resultOfTwoNames = reverseName("Ratul", "Jobaer");
 
 // Input
 
-// 10
-
-// 25
-
-// 199
+// 10, 25, 199
 
 // Output
 
-// 572.96
+// 572.96, 1432.39, 11401.86
 
-// 1432.39
+//formula : 1rad x 180/π
+function radianToDegree(radian) {
+  if (typeof radian !== "number") {
+    return "Mr. Yasin provide a valid input";
+  }
+  const PI = 3.14159265;
+  const degree = (radian * (180 / PI)).toFixed(2);
+  return degree;
+  // return parseFloat(degree); [if want to make it string to number]
+}
 
-// 11401.86
+let result = radianToDegree(25);
+console.log(result);
+//solve
+
+//----------------------------------------------------------------
 
 // Problem:2   isJavaScriptFile
 
@@ -216,24 +228,62 @@ let resultOfTwoNames = reverseName("Ratul", "Jobaer");
 // Sample Data
 
 // Input
-
-// 'app.js'
-
-// 'js.png'
-
-// 'image.js.png'
-
-// 'image.jpg.js'
+/* 
+'app.js'
+'js.png'
+'image.js.png'
+'image.jpg.js'
+*/
 
 // Output
+/*
+ true
+ false
+ false
+ true
+ */
 
-// true
+function isJavaScriptFile(fileName) {
+  if (typeof fileName != "string" || fileName.length == 0) {
+    return "Mr. Yasin provide a valid input";
+  }
+  if (fileName.endsWith(".js")) {
+    /* .endsWith() method checkes whether a string ends with the characters of a specified string */
+    return true;
+  } else {
+    return false;
+  }
+}
 
-// false
+let resultIs = isJavaScriptFile("index.js");
+// console.log(resultIs);
 
-// false
+/* Another way is nasted conditions
+ */
+function isJavaScriptFile(fileName) {
+  let str = fileName;
+  if (str[str.length - 1] == "s") {
+    if (str[str.length - 2] == "j") {
+      if (str[str.length - 3] == ".") {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+// let resultIs = isJavaScriptFile("index.js");
+// console.log(resultIs);
 
-// true
+/* Most easy and shortcut way is
+ */
+function isJavaScriptFile(fileName) {
+  return fileName.endsWith(".js");
+}
+// let resultIs = isJavaScriptFile("index.js");
+// console.log(resultIs);
+
+//solve
+//----------------------------------------------------------------
 
 // Problem 3:  oilPrice
 
@@ -269,6 +319,8 @@ let resultOfTwoNames = reverseName("Ratul", "Jobaer");
 
 // 665
 
+//----------------------------------------------------------------
+
 // Problem 4:  publicBusFare
 
 // একটি বড় সংখ্যাক মানুষজন(৫০ বা তার বেশি) পিকনিকে যাবে। বাসের সংখ্যা মানুষের সংখার উপর নির্ভর করবে। ধরো  আমাদের বাস ও মাইক্রো আছে ।প্রতিটি  বাসের ক্যাপাসিটি ৫০ জন এবং প্রতিটি মাইক্রবাসের ক্যাপাসিটি ১১ জন এবং পাবলিক বাসের প্রতিটি টিকেটের মূল্য ২৫০ টাকা করে।মাইক্রবাসে ১১ জনের কম হলে মাইক্রবাসে যাওয়া যাবে না।  এখন তোমাকে একটি ফাংশন লিখতে হবে যার নাম হবে publicBusFare যেটি প্যরামিটার হিসেবে  একটা সংখ্যা (কতজন যাবে )   নিবে । মোট কতটাকা পাবলিক বাস ফেয়ারে যাবে সেটি তোমাকে রিটার্ন করবে ।
@@ -283,29 +335,45 @@ let resultOfTwoNames = reverseName("Ratul", "Jobaer");
 
 // Sample Data
 
-// Input
+/* Input
+ 50
+ 55
+ 112
+ 235
+ 365
+ */
 
-// 50
+/* Output
+ 0
+ 1250
+ 250
+ 500
+ 1000
+*/
 
-// 55
+function publicBusFare(participants) {
+  if (typeof participants != "number") {
+    return "Provide valid participants in number";
+  }
+  let busSeatCapacity = 50;
+  let microbusSeatCapacity = 11;
+  let remaining = 0;
 
-// 112
+  // After calculating the amount of people who can travel by our bus
+  // The value of remaining will be:-
+  remaining = participants % busSeatCapacity;
 
-// 235
+  // After calculating the amount of people who can travel by our microbus
+  // The value of remaining will be:-
+  remaining = remaining % microbusSeatCapacity;
 
-// 365
+  // Now calculate the total cost of public bus
+  let costOfPublicBus = remaining * 250;
+  return costOfPublicBus;
+}
+console.log(publicBusFare(365));
 
-// Output
-
-// 0
-
-// 1250
-
-// 250
-
-// 500
-
-// 1000
+//----------------------------------------------------------------
 
 // Problem 5:  isBestFriend
 
@@ -314,29 +382,43 @@ let resultOfTwoNames = reverseName("Ratul", "Jobaer");
 // Sample Data:
 
 // Input
+/* 
+{ name: "abul", friend: "babul" },
+{ name: "babul", friend: "abul" }
 
-// { name: "abul", friend: "babul" },
+{ name: "abul", friend: "kabul" },
+{ name: "kabul", friend: "sabul" }
 
-// { name: "babul", friend: "abul" }
-
-// { name: "abul", friend: "kabul" },
-
-// { name: "kabul", friend: "sabul" }
-
-// { name: "doe", friend: "alex" },
-
-// { name: "john", friend: "doe" }
+{ name: "doe", friend: "alex" },
+{ name: "john", friend: "doe" }
+*/
 
 // Output
+/*
+ true
 
-// true
+ false
 
-// false
+ false
+ */
 
-// false
+function isBestFriend(objectOne, objectTwo) {
+  if (
+    objectOne.name == objectTwo.friend &&
+    objectTwo.name == objectOne.friend
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+let resultOfTheObjects = isBestFriend(
+  { name: "abul", friend: "babul" },
+  { name: "babul", friend: "abul" }
+);
+// console.log(resultOfTheObjects);
 
-// .
-
+//----------------------------------------------------------------
 // কিছু কমন প্রশ্ন:
 
 // প্রশ্ন-১: ফ্যাংশন এর ভিতরে কি console.log লিখবো নাকি রিটার্ন করবো?
