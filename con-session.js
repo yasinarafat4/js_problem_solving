@@ -35,6 +35,7 @@ for (let i = 1; i <= n; i++) {
 let sum2 = (n * (n + 1)) / 2;
 // console.log("Sum2:", sum2);
 
+// solve
 //----------------------------------------------------------------
 // ৩ এর নামতা লিখো জাভাস্ক্রিপ্ট ব্যাবহার করে। (TimesTable)
 
@@ -42,9 +43,10 @@ let num1 = 1;
 let num2 = 3;
 
 for (let i = 1; i <= 10; i++) {
-  console.log(i + "*" + 3 + "=" + i * 3);
+  //   console.log(i + "*" + 3 + "=" + i * 3);
+  //   console.log(i, "*", 3, "=", i * 3);
 }
-
+// solve
 //----------------------------------------------------------------
 
 // এমন একটা ফাংশন বানাও যেটা একটি অ্যারে নিবে ইনপুট হিসেবে। তারপর সেই অ্যারের সকল উপাদান এর মধ্যে ৫ এর চেয়ে বড় যে সকল সংখ্যা আছে তাদের কাউন্ট নির্ণয় করবে।
@@ -53,9 +55,117 @@ for (let i = 1; i <= 10; i++) {
 
 // আউটপুটঃ 3
 
+// let num = 4;
+
+// if (num < 5) {
+//   console.log("YES");
+// } else {
+//   console.log("NO");
+// }
+
+let numbers = [-1, 2, -3, 4, 5, 6, -7, 8, -9, 10];
+function greaterThanFive(numbers) {
+  let count = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    const element = numbers[i];
+    if (element > 5) {
+      count = count + 1;
+      // Or, count += 1;
+      //   count++;
+    }
+  }
+  return count;
+}
+const result = greaterThanFive(numbers);
+// console.log(result);
+// solve
 //----------------------------------------------------------------
 
 // তোমার দুজন বন্ধুর নাম একটি ফাংশনের প্যারামিটার হিসেবে পাস করো। তারপর এই দুইটি নামের মধ্যে যে নামটি বড়ো সেটি reverse অর্ডারে রিটার্ন করো।
+/* 
+Ratul
+Jobaer
+*/
+// let nameOne = "Ratul";
+// let nameTwo = "Jobaer";
+
+// console.log(nameOne.length);
+// console.log(nameTwo.length);
+
+// let friendOneLength = nameOne.length;
+// let friendTwoLength = nameTwo.length;
+
+// if (friendOneLength > friendTwoLength) {
+//   console.log(nameOne, "is largest");
+// } else {
+//   console.log(nameTwo, "is largest");
+// }
+
+// reverse part
+// if (friendOneLength > friendTwoLength) {
+//   console.log(nameOne.split("").reverse().join(""));
+// } else {
+//   console.log(nameTwo.split("").reverse().join(""));
+// }
+
+// final part----
+
+// let nameOne = "Ratul";
+// let nameTwo = "Jobaer";
+
+// function reverseName(nameOne, nameTwo) {
+//   let friendOneLength = nameOne.length;
+//   let friendTwoLength = nameTwo.length;
+
+//   if (friendOneLength > friendTwoLength) {
+//     return nameOne.split("").reverse().join("");
+//   } else {
+//     return nameTwo.split("").reverse().join("");
+//   }
+// }
+
+// const resultOfTwoNames = reverseName("Ratul", "Jobaer");
+// console.log(resultOfTwoNames);
+// solve
+
+// Another way for reversing a string------------
+
+// let str = "Jobaer";
+
+// unreverse
+// for (let i = 0; i < str.length; i++) {
+//   const element = str[i];
+//   console.log(element);
+// }
+
+// reverse
+
+let nameOne = "Ratul";
+let nameTwo = "Jobaer";
+
+function reverseName(nameOne, nameTwo) {
+  let friendOneLength = nameOne.length;
+  let friendTwoLength = nameTwo.length;
+  let largeName = "";
+  if (friendOneLength > friendTwoLength) {
+    largeName = nameOne;
+  } else {
+    largeName = nameTwo;
+  }
+  let reverseString = ""; /* empty string for sum reverseString + element */
+  for (let i = largeName.length - 1; i >= 0; i--) {
+    const element = largeName[i];
+    reverseString = reverseString + element;
+  }
+  return reverseString;
+}
+
+let resultOfTwoNames = reverseName("Ratul", "Jobaer");
+// console.log(resultOfTwoNames);
+
+//----------------------------------------------------------------
+
 // এমন একটা ফাংশন বানাবে যেটিতে তুমি ইনপুট হিসেবে পানির volume ইন্সারট করবে মিলিলিটারে। এই মিলিলিটারকে লিটারে কনভার্ট করে  ফাংশন তোমাকে রিটার্ন করবে।
 
 // একটা ফাংশন বানাবে যেটি একটি অ্যারে অফ অবজেক্ট রিসিভ করে প্যারামিটার হিসেবে।প্রতিটি অবজেক্টে একটি মানুষের নাম  এবং বয়স থাকবে। এখন তোমার কাজ হচ্ছে এই অ্যারে থেকে সবচেয়ে ছোট যে person কে খুঁজে বের করা।
@@ -85,13 +195,13 @@ for (let i = 1; i <= 10; i++) {
 
 // Input
 
-// Output
-
 // 10
 
 // 25
 
 // 199
+
+// Output
 
 // 572.96
 
@@ -107,8 +217,6 @@ for (let i = 1; i <= 10; i++) {
 
 // Input
 
-// Output
-
 // 'app.js'
 
 // 'js.png'
@@ -116,6 +224,8 @@ for (let i = 1; i <= 10; i++) {
 // 'image.js.png'
 
 // 'image.jpg.js'
+
+// Output
 
 // true
 
@@ -141,8 +251,6 @@ for (let i = 1; i <= 10; i++) {
 
 // Input
 
-// Output
-
 // 1, 1, 1
 
 // 30, 20, 10
@@ -150,6 +258,8 @@ for (let i = 1; i <= 10; i++) {
 // 1,0,2
 
 // 0,2,3
+
+// Output
 
 // 379
 
@@ -175,8 +285,6 @@ for (let i = 1; i <= 10; i++) {
 
 // Input
 
-// Output
-
 // 50
 
 // 55
@@ -186,6 +294,8 @@ for (let i = 1; i <= 10; i++) {
 // 235
 
 // 365
+
+// Output
 
 // 0
 
@@ -205,8 +315,6 @@ for (let i = 1; i <= 10; i++) {
 
 // Input
 
-// Output
-
 // { name: "abul", friend: "babul" },
 
 // { name: "babul", friend: "abul" }
@@ -218,6 +326,8 @@ for (let i = 1; i <= 10; i++) {
 // { name: "doe", friend: "alex" },
 
 // { name: "john", friend: "doe" }
+
+// Output
 
 // true
 
